@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinzz Digital Store Full Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:linear-gradient(rgba(8,8,20,.72),rgba(10,10,25,.82)),url('https://img2.pixhost.to/images/8652/739328502_alip-1781584690812.jpg');background-size:cover;background-attachment:fixed;color:#fff}
+.container{max-width:1200px;margin:auto;padding:20px}
+.hero,.card{background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:20px;margin:15px 0}
+.hero{text-align:center}
+.profile{width:120px;height:120px;border-radius:50%}
+.stats,.grid{display:grid;gap:12px}
+.stats{grid-template-columns:repeat(3,1fr)}
+.grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.stat,.price{background:rgba(255,255,255,.08);padding:12px;border-radius:14px}
+.price{display:flex;justify-content:space-between;margin-top:8px}
+.buybtn,.order{display:block;width:100%;padding:12px;margin-top:8px;border:none;border-radius:12px;color:#fff;text-decoration:none;text-align:center;cursor:pointer}
+.buybtn{background:linear-gradient(135deg,#f00,#f00)}
+.order{background:linear-gradient(135deg,#111,#f00)}
+.qris{width:100%;border-radius:12px}
+#paymentModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);justify-content:center;align-items:center}
+.modal-content{background:#fff;padding:20px;border-radius:20px;max-width:400px;width:90%}
+.music{position:fixed;right:15px;bottom:15px;padding:12px;border:none;border-radius:12px}
+
+.sidebar{position:fixed;left:-320px;top:0;width:300px;height:100%;background:#111;z-index:9999;padding:20px;transition:.3s;overflow:auto}
+.sidebar.active{left:0}
+.menu-btn{position:fixed;top:15px;left:15px;z-index:10000;padding:10px 15px;border:none;border-radius:10px}
+.sidebar a{display:block;color:#fff;text-decoration:none;padding:10px;margin:8px 0;background:rgba(255,255,255,.08);border-radius:10px}
+.info-box{margin-top:15px;padding:12px;background:rgba(255,255,255,.08);border-radius:12px}
+
+</style>
+</head>
+<body>
+
+<button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+<div class="sidebar" id="sidebar">
+<h2>🍀 Vinzz Ai Multidevice</h2>
+<a href="#premium">💎 Premium Bot</a>
+<a href="#sewa">🤖 Sewa Bot</a>
+<a href="#vvip">👑 Akses VVIP</a>
+<a href="#panel">🖥️ Panel</a>
+<a href="#benefit">⭐ Benefit</a>
+
+<div class="info-box">
+<h3>💎 Premium Bot</h3>
+<p>Mendapat akses fitur premium, limit lebih besar, dan prioritas penggunaan bot.</p>
+</div>
+
+<div class="info-box">
+<h3>🤖 Sewa Bot</h3>
+<p>Bot masuk ke grup kamu dan aktif 24 jam sesuai masa sewa.</p>
+</div>
+
+<div class="info-box">
+<h3>👑 Akses VVIP</h3>
+<p>Akses seluruh fitur eksklusif, update terbaru, dan prioritas support.</p>
+</div>
+
+<div class="info-box">
+<h3>🖥️ Benefit Panel</h3>
+<p>Server stabil, anti delay, cocok untuk bot WhatsApp dan project hosting.</p>
+</div>
+</div>
+
+<div class="container">
+<div class="hero">
+<img src="https://img2.pixhost.to/images/8652/739328516_alip-1781584692862.jpg" class="profile">
+<h1>› ׁ 𝗏𝗂𝗇𝗓𝗓 - 𝖺𝗂 𝗆𝗎𝗅𝗍𝗂𝖽𝖾𝗏𝗂𝖼𝖾 🍀</h1>
+<p>🟢 Online 24 Jam</p>
+</div>
+
+<div class="stats">
+<div class="stat"><h3>15000+</h3><p>Customer</p></div>
+<div class="stat"><h3>250+</h3><p>Premium</p></div>
+<div class="stat"><h3>24/7</h3><p>Support</p></div>
+</div>
+
+<div class="grid">
+<div class="card" id='premium'><h2>💎 Buy Premium</h2>
+<div class="price"><span>7 Hari</span><span>Rp7.000</span></div><button class="buybtn" onclick="bayar('Premium 7 Hari','7000')">Pilih Paket</button>
+<div class="price"><span>1 Bulan</span><span>Rp16.000</span></div><button class="buybtn" onclick="bayar('Premium 1 Bulan','16000')">Pilih Paket</button>
+<div class="price"><span>2 Bulan</span><span>Rp25.000</span></div><button class="buybtn" onclick="bayar('Premium 2 Bulan','25000')">Pilih Paket</button>
+<div class="price"><span>3 Bulan</span><span>Rp28.000</span></div><button class="buybtn" onclick="bayar('Premium 3 Bulan','28000')">Pilih Paket</button>
+<div class="price"><span>Permanent</span><span>Rp32.000</span></div><button class="buybtn" onclick="bayar('Premium Permanent','32000')">Pilih Paket</button>
+</div>
+
+<div class="card" id='sewa'><h2>🤖 Sewa Bot</h2>
+<div class="price"><span>7 Hari</span><span>Rp10.000</span></div><button class="buybtn" onclick="bayar('Sewa Bot 7 Hari','10000')">Pilih Paket</button>
+<div class="price"><span>1 Bulan</span><span>Rp20.000</span></div><button class="buybtn" onclick="bayar('Sewa Bot 1 Bulan','20000')">Pilih Paket</button>
+<div class="price"><span>2 Bulan</span><span>Rp30.000</span></div><button class="buybtn" onclick="bayar('Sewa Bot 2 Bulan','30000')">Pilih Paket</button>
+<div class="price"><span>3 Bulan</span><span>Rp40.000</span></div><button class="buybtn" onclick="bayar('Sewa Bot 3 Bulan','40000')">Pilih Paket</button>
+<div class="price"><span>Permanent</span><span>Rp60.000</span></div><button class="buybtn" onclick="bayar('Sewa Bot Permanent','60000')">Pilih Paket</button>
+</div>
+</div>
+
+
+<div class="card" id='vvip'><h2>👑 Akses VVIP</h2>
+<div class="price"><span>VVIP 7 Hari</span><span>Rp10.000</span></div><button class="buybtn">Pilih Paket</button>
+<div class="price"><span>VVIP 1 Bulan</span><span>Rp20.000</span></div><button class="buybtn">Pilih Paket</button>
+<div class="price"><span>VVIP 2 Bulan</span><span>Rp35.000</span></div><button class="buybtn">Pilih Paket</button>
+<div class="price"><span>VVIP 3 Bulan</span><span>Rp50.000</span></div><button class="buybtn">Pilih Paket</button>
+<div class="price"><span>VVIP Permanent</span><span>Rp55.000</span></div><button class="buybtn">Pilih Paket</button>
+</div>
+
+<div class="card" id='panel'><h2>🖥️ Panel Pterodactyl</h2>
+<div id="panelList">
+<div class="price"><span>Panel 3GB</span><span>Rp13.000</span></div><button class="buybtn" onclick="bayar('Panel 3GB','13000')">Pilih Paket</button><div class="price"><span>Panel 4GB</span><span>Rp14.000</span></div><button class="buybtn" onclick="bayar('Panel 4GB','14000')">Pilih Paket</button><div class="price"><span>Panel 5GB</span><span>Rp15.000</span></div><button class="buybtn" onclick="bayar('Panel 5GB','15000')">Pilih Paket</button><div class="price"><span>Panel 6GB</span><span>Rp16.000</span></div><button class="buybtn" onclick="bayar('Panel 6GB','16000')">Pilih Paket</button><div class="price"><span>Panel 7GB</span><span>Rp17.000</span></div><button class="buybtn" onclick="bayar('Panel 7GB','17000')">Pilih Paket</button><div class="price"><span>Panel 8GB</span><span>Rp18.000</span></div><button class="buybtn" onclick="bayar('Panel 8GB','18000')">Pilih Paket</button><div class="price"><span>Panel 9GB</span><span>Rp20.000</span></div><button class="buybtn" onclick="bayar('Panel 9GB','20000')">Pilih Paket</button><div class="price"><span>Panel 10GB</span><span>Rp24.000</span></div><button class="buybtn" onclick="bayar('Panel 10GB','24000')">Pilih Paket</button>
+<div class="price"><span>Unlimited</span><span>Rp28.000</span></div><button class="buybtn" onclick="bayar('Panel Unlimited','28000')">Pilih Paket</button>
+</div></div>
+
+<div class="card"><h2>💼 PT / Admin</h2>
+<div class="price"><span>PT Panel</span><span>Rp35.000</span></div>
+<div class="price"><span>Admin Panel</span><span>Rp40.000</span></div>
+<div class="price"><span>Reseller Panel</span><span>Rp45.000</span></div>
+<div class="price"><span>Owner Panel</span><span>Rp55.000</span></div>
+</div>
+
+
+<div class="card" id="benefit">
+<h2>⭐ Benefit Membership</h2>
+<p>✅ Fast Response Admin</p>
+<p>✅ Prioritas Support</p>
+<p>✅ Update Fitur Terbaru</p>
+<p>✅ Akses Fitur Eksklusif</p>
+<p>✅ Server Stabil & Anti Delay</p>
+<p>✅ Garansi Sesuai Paket</p>
+</div>
+
+
+<div class="card">
+<h2>🌐 Komunitas & Developer</h2>
+
+<div class="price"><span>📢 Saluran Channel</span><span>Join</span></div>
+<a class="order" href="https://whatsapp.com/channel/0029Vb7ip1S3GJP1TXbjBr1r">Masuk Channel</a>
+
+<div class="price"><span>👥 Grup Bot WhatsApp</span><span>Join</span></div>
+<a class="order" href="https://chat.whatsapp.com/H4hdo0PNBP1COECjCaRwnk">Masuk Grup</a>
+
+<div class="price"><span>🍀 Developer</span><span>Contact</span></div>
+<a class="order" href="https://wa.me/6283162070427">Hubungi Developer</a>
+</div>
+
+<div class="card"><h2>💳 QRIS</h2>
+<img src="https://img2.pixhost.to/images/8652/739322773_alip-1781584090846.jpg" class="qris">
+<a class="order" href="https://img2.pixhost.to/images/8652/739322773_alip-1781584090846.jpg" download>📥 Download QRIS</a>
+</div>
+</div>
+
+<audio id="bgm" src="https://raw.githubusercontent.com/ZrooPro/SaveDat1/main/uploads/20260616_042921_542_xjyq1p3t.mp3" loop></audio>
+<button class="music" onclick="toggleMusic()">🎵 Music</button>
+
+<div id="paymentModal"><div class="modal-content">
+<h2>Pembayaran</h2><p id="paketDipilih"></p>
+<img src="https://img2.pixhost.to/images/8652/739322773_alip-1781584090846.jpg" class="qris">
+<a class="order" href="https://img2.pixhost.to/images/8652/739322773_alip-1781584090846.jpg" download>📥 Download QRIS</a>
+<a id="waBayar" class="order">📤 Kirim Bukti Transfer</a>
+<button class="buybtn" onclick="tutupModal()">Tutup</button>
+</div></div>
+
+<script>
+
+function toggleMenu(){
+document.getElementById('sidebar').classList.toggle('active');
+}
+
+function toggleMusic(){let a=document.getElementById('bgm');if(a.paused){a.play()}else{a.pause()}}
+function bayar(paket,harga){
+document.getElementById('paymentModal').style.display='flex';
+document.getElementById('paketDipilih').innerHTML='Paket: <b>'+paket+'</b><br>Total: Rp'+harga;
+document.getElementById('waBayar').href='https://wa.me/6283162070427?text='+encodeURIComponent('Halo Admin, saya sudah bayar. Paket: '+paket+' Total: Rp'+harga+' Saya lampirkan bukti transfer.');
+}
+function tutupModal(){document.getElementById('paymentModal').style.display='none'}
+</script>
+</body></html>
